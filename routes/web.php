@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HelloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,24 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('hello/{msg?}', function ($msg='no message.') {
-
-    $html = <<<EOF
-    <html>
-        <head>
-            <title>hello</title>
-            <style>
-                body {font-size: 16pt; color: #999;}
-                h1 {font-size: 100px; text-align: right; color: #eee; margin: -40px 0px -50px 0px;}
-            </style>
-        </head>
-        <body>
-            <h1>hello</h1>
-            <p>{$msg}</p>
-            <p>これは、サンプルで作ったページです。</p>
-        </body>
-    </html>
-    EOF;
-
-    return $html;
-});
+Route::get('/hello', [HelloController::class, 'index']);
