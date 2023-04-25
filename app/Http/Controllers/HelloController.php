@@ -5,7 +5,8 @@ namespace App\Http\Controllers;//名前空間。コントローラクラスを�
 use Illuminate\Http\Request;
 
 class HelloController extends Controller {
-    public function index() {
+    //アクションとして使われるメソッド
+    public function index($id='noname', $pass='unknown') {//引数にデフォルト値を代入
 
         return <<<EOF
 <html>
@@ -20,6 +21,10 @@ class HelloController extends Controller {
     <body>
         <h1>Index</h1>
         <p>これは、Helloコントローラのindexアクションです。</p>
+        <ul>
+            <li>ID: {$id}</li>
+            <li>PASS: {$pass}</li>
+        </ul>
     </body>
 </html>
 EOF;
