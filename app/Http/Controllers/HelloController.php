@@ -2,38 +2,45 @@
 
 namespace App\Http\Controllers;//名前空間。コントローラクラスを作成する際の基本設定
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;//Requestクラスの読み込み
+use Illuminate\Http\Response;//Responseクラスの読み込み
 
 class HelloController extends Controller {
     //アクションとして使われるメソッド
-    public function __invoke() {//引数にデフォルト値を代入
+    public function index(Request $request, Response $response) {//引数にRequestとResponseのインスタンスを用意
 
-        return <<<EOF
+        $html = <<<EOF
 
-    <html>
+        <html>
 
-    <head>
+        <head>
 
-        <title>Hello</title>
+            <title>Hello/Index</title>
 
-        <style>
+            <style>
 
-            body {font-size:16pt; color:#999; }
-            h1 {font-size:30pt; text-align:right; color:#eee; margin:-15px 0px 0px 0px;}
+                body {font-size:16pt; color:#999; }
+                h1 {font-size:120pt; text-align:right; color:#fafafa; margin:-50px 0px -120px 0px;}
 
-        </style>
+            </style>
 
-    </head>
+        </head>
 
-    <body>
+        <body>
 
-        <h1>Single Action</h1>
-        <p>これは、シングルアクションコントローラのアクションです。</p>
+            <h1>Hello</h1>
+            <h3>Request</h3>
+            <pre>{$request}</pre> <!-- 変数展開 半角スペース・改行などがそのまま表示  -->
+            <h3>Response</h3>
+            <pre>{$response}</pre> <!-- を変数展開 半角スペース・改行などがそのまま表示 -->
 
-    </body>
+        </body>
 
-    </html>
-    EOF;
+        </html>
+        EOF;
+
+            $response->setContent($html);//$responseにsetContentメソッドを利用して$htmlを代入
+            return $response;
 
     }
 
