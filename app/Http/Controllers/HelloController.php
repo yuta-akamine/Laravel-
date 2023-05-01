@@ -8,7 +8,9 @@ use Illuminate\Http\Response;//Responseクラスの読み込み
 class HelloController extends Controller {
     //アクションとして使われるメソッド
     public function index() {
-        return view('hello.index');
+        //連想配列 キー名『msg』に値『これはコントローラから渡されたメッセージです。』をセット
+        $date = ['msg'=>'これはコントローラから渡されたメッセージです。'];
+        return view('hello.index', $date);
     }
 
 }
