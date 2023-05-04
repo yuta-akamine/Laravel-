@@ -7,12 +7,10 @@ use Illuminate\Http\Response;//Responseクラスの読み込み
 
 class HelloController extends Controller {
     //アクションとして使われるメソッド
-    public function index(Request $request) {//引数にRequestインスタンスを渡す
+    public function index() {
         //連想配列 キー名『msg』に値『これはコントローラから渡されたメッセージです。』をセット
         $date = [
-            'msg'=>'これはコントローラから渡されたメッセージです。',
-            // viewに渡すidはリクエストインスタンスのidを代入している
-            'id'=>$request->id
+            'msg'=>'これはBladeを利用したサンプルです。',
         ];
         return view('hello.index', $date);
     }
