@@ -18,5 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//getメソッドでhelloへアクセスされた際、HelloControllerクラスのindexメソッドを実行
 Route::get('/hello/', [HelloController::class, 'index']);
+
+//postメソッドでhelloへアクセスされた際、HelloControllerクラスのpostメソッドを実行
+Route::post('/hello/', [HelloController::class, 'post']);
