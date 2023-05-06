@@ -11,7 +11,12 @@
 
     <body>
         <h1>Blade/Index</h1>
-        <p>{{$msg}}</p>
+        @if ($msg != '')
+        <p>こんにちは、{{$msg}}さん。</p>
+        @else
+        <p>何か書いて下さい。</p>
+        @endif
+
         {{-- actionのパスはプロジェクト名/public/URL情報 --}}
         <form action="/Laravel学習用/public/hello" method="POST">
             @csrf
