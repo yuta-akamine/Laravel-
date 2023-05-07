@@ -11,11 +11,15 @@
 
     <body>
         <h1>Blade/Index</h1>
-        @if ($msg != '')
+
+        {{-- $msgが定義されているかチェック --}}
+        @isset ($msg){{-- $msgが定義されている場合true --}}
         <p>こんにちは、{{$msg}}さん。</p>
+
+        {{-- $msgが定義されていない場合 --}}
         @else
         <p>何か書いて下さい。</p>
-        @endif
+        @endisset
 
         {{-- actionのパスはプロジェクト名/public/URL情報 --}}
         <form action="/Laravel学習用/public/hello" method="POST">

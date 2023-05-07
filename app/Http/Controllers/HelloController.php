@@ -7,13 +7,14 @@ use Illuminate\Http\Response;//Responseクラスの読み込み
 
 class HelloController extends Controller {
     //アクションとして使われるメソッド
+    //helloにアクセスした際のリクエストがgetメソッドの場合のアクション
     public function index() {
-        return view('hello.index', ['msg'=>'']);
+        return view('hello.index');
     }
 
     //helloにアクセスした際のフォームがpostだった場合の処理
     public function post(Request $request) {//引数にRequestインスタンスを準備
-        // Requestインスタンスのmsgフィールドの値を変数$msgへ代入
+        // msgのキーの値はRequestインスタンスのmsgフィールドの値
         return view('hello.index', ['msg'=>$request->msg]);
     }
 
