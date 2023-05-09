@@ -9,7 +9,10 @@ class HelloController extends Controller {
     //アクションとして使われるメソッド
     //helloにアクセスした際のリクエストがgetメソッドの場合のアクション
     public function index() {
-        return view('hello.index');
+        //配列$dataを定義
+        $data = ['one', 'two', 'three', 'four', 'five'];
+        //連想配列のキーをdata値を配列$dataとしてviewへ渡す
+        return view('hello.index', ['data'=>$data]);
     }
 
     //helloにアクセスした際のフォームがpostだった場合の処理

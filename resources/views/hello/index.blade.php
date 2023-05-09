@@ -12,11 +12,19 @@
     <body>
         <h1>Blade/Index</h1>
 
-        <p>&#064;foreachディレクティブの例</p>
+        <p>&#064;forディレクティブの例</p>
         <ol>
-            @foreach($data as $item)
-            <li>{{$item}}</li>
-            @endforeach
+        {{-- $iに1を代入。100になるまで繰り返し --}}
+        @for ($i = 1; $i < 100; $i++)
+
+            @if ($i % 2 == 1) {{-- 奇数の場合 --}}
+                @continue {{-- 次の繰り返しへ --}}
+            @elseif ($i <= 10) {{-- 奇数ではなく(偶数で)10以下の場合 --}}
+                <li>No, {{$i}} {{-- 出力する --}}
+            @else
+                @break {{-- くり返し中断 --}}
+            @endif
+        @endfor
         </ol>
     </body>
 
