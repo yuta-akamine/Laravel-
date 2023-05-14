@@ -1,29 +1,23 @@
-<html>
+{{-- views/layouts/helloapp(親)レイアウトの継承 --}}
+@extends('layouts.helloapp')
 
-    <head>
-        <title>Hello/Index</title>
-        <style>
-            body {font-size: 16pt; color: #999; }
-            h1 { font-size: 50pt; text-align: right; color: #f6f6f6;
-                marginq:-20px 0px -30px 0px; letter-spacing:-4pt; }
-        </style>
-    </head>
+{{-- 第一引数にセクションの名前、第二引数に表示させる値 --}}
+@section('title', 'Index')
 
-    <body>
-        <h1>Blade/Index</h1>
-        {{-- @の実体参照文字 --}}
-        <p>&#064;whileディレクティブの例</p>
-        <ol>
-        @php
-            $counter = 0;
-        @endphp
-        @while ($counter < count($data))
-            <li>{{$data[$counter]}}</li>
-            @php
-                $counter++;
-            @endphp
-        @endwhile
-        </ol>
-    </body>
+{{-- menubarというセクション --}}
+@section('menubar')
+    {{-- 親のセクションを表示 --}}
+    @parent
+    {{-- 親のセクション表示後下記を表示 --}}
+    インデックスページ
+@endsection
 
-</html>
+
+@section('content')
+    <p>ここが本文のコンテンツです。</p>
+    <p>必要なだけ記述できます。</p>
+@endsection
+
+@section('footer')
+copyright 2020 tuyano.
+@endsection
