@@ -16,6 +16,17 @@
 @section('content')
     <p>ここが本文のコンテンツです。</p>
     <p>必要なだけ記述できます。</p>
+
+    {{-- componentフォルダのmessage.blade.phpをコンポーネントとして組み込みを指定 --}}
+    @component('components.message')
+        @slot('msg_title')
+        CAUTION!m
+        @endslot
+
+        @slot('msg_content')
+        これはメッセージの表示です。
+        @endslot
+    @endcomponent
 @endsection
 
 @section('footer')
