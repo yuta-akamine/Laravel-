@@ -10,8 +10,12 @@ class HelloController extends Controller {
     //helloにアクセスした際のリクエストがgetメソッドの場合のアクション
     public function index() {
         //配列$dataを定義
-        $data = ['one', 'two', 'three', 'four', 'five'];
-        //連想配列のキーをdata値を配列$dataとしてviewへ渡す
+        $data = [
+            ['name'=>'山田たろう', 'mail'=>'taro@yamada'],
+            ['name'=>'田中はなこ', 'mail'=>'hanako@flower'],
+            ['name'=>'鈴木さちこ', 'mail'=>'sachico@happy']
+        ];
+        //配列のdataをviewへ渡す
         return view('hello.index', ['data'=>$data]);
     }
 
