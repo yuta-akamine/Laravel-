@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class HelloServicdeProvider extends ServiceProvider { //ServiceProviderを継承
+class HelloServiceProvider extends ServiceProvider { //ServiceProviderを継承
 
     /**
      * Bootstrap services.
